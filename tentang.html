@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tentang Kami — GadgetKita</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #000000;
+      color: #ffffff;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-weight: 600;
+      font-size: 22px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    marquee {
+      background: #f0f0f0;
+      color: #333333;
+      padding: 8px 0;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 28px auto;
+      display: flex;
+      gap: 36px;
+      padding: 0 20px;
+    }
+
+    main {
+      flex: 3;
+    }
+
+    aside {
+      flex: 1;
+      background: #fafafa;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid #eaeaea;
+      text-align: center;
+    }
+
+    aside img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #000000;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #000000;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 16px;
+      color: #333333;
+    }
+
+    a {
+      color: #000000;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      background: #000000;
+      color: #ffffff;
+      margin-top: 48px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      aside {
+        order: -1;
+        margin-bottom: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>GadgetKita</h1>
+  <nav>
+    <a href="index.html">Produk</a>
+    <a href="tentang.html">Tentang</a>
+  </nav>
+</header>
+
+<marquee behavior="scroll" direction="left" scrollamount="4">
+  📱 PROMO KHUSUS HARI INI — Gratis Ongkir & Garansi Resmi 1 Tahun
+</marquee>
+
+<div class="container">
+  <main>
+    <h2>Tentang GadgetKita</h2>
+    <p><strong>GadgetKita</strong> adalah toko handphone online resmi yang berdiri sejak 2023 di Jakarta, Indonesia.</p>
+    <p>Kami hanya menjual smartphone 100% original dari brand ternama seperti Apple, Samsung, Xiaomi, Oppo, Vivo, dan lainnya — lengkap dengan garansi resmi dan faktur pembelian.</p>
+    <p>Misi kami sederhana: memberikan pengalaman belanja gadget yang <strong>aman, transparan, dan nyaman</strong> untuk semua pelanggan di Indonesia.</p>
+    <p>Setiap perangkat telah melalui quality control ketat sebelum dikirim, dan kami menjamin keaslian produk tanpa rekondisi.</p>
+
+    <h2 style="margin-top: 32px;">Layanan Pelanggan</h2>
+    <p>📧 Email: <a href="mailto:support@gadgetkita.com">support@gadgetkita.com</a></p>
+    <p>📱 WhatsApp: <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></p>
+    <p>📍 Instagram: <a href="https://instagram.com/gadgetkita" target="_blank">@gadgetkita</a></p>
+    <p>🏠 Alamat: Jl. Teknologi No. 123, Jakarta Selatan, Indonesia</p>
+  </main>
+
+  <aside>
+    <h2>Kontak Pemilik</h2>
+    <img src="foto-saya.jpg" alt="Foto Pemilik" onerror="this.src='https://picsum.photos/160?grayscale&random=10'">
+    <p><strong>Naufal Caesaerio</strong></p>
+    <p>Founder & CEO<br>GadgetKita</p>
+  </aside>
+</div>
+
+<footer>
+  &copy; 2025 GadgetKita. Semua produk bergaransi resmi.
+</footer>
+
+</body>
+</html>

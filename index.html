@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GadgetKita — Handphone Original</title>
+  <style>
+    /* Reset & Global */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: #000000;
+      color: #ffffff;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-weight: 600;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 16px;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    /* Marquee */
+    marquee {
+      background: #f0f0f0;
+      color: #333333;
+      padding: 8px 0;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    /* Layout */
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 24px auto;
+      gap: 28px;
+      padding: 0 20px;
+    }
+
+    main {
+      flex: 3;
+    }
+
+    aside {
+      flex: 1;
+      background: #fafafa;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #eaeaea;
+      font-size: 14px;
+    }
+
+    aside h3 {
+      font-size: 16px;
+      margin-bottom: 12px;
+      color: #000000;
+      font-weight: 600;
+    }
+
+    aside ul {
+      list-style: none;
+    }
+
+    aside li {
+      margin-bottom: 8px;
+    }
+
+    aside a {
+      color: #333333;
+      text-decoration: none;
+      opacity: 0.85;
+    }
+
+    aside a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    /* Produk */
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #000000;
+    }
+
+    .produk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .produk {
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .produk:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .produk img {
+      width: 100%;
+      max-height: 180px;
+      object-fit: contain;
+      margin-bottom: 14px;
+      background: #f9f9f9;
+      border-radius: 6px;
+    }
+
+    .produk h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #000000;
+    }
+
+    .produk .harga {
+      font-size: 18px;
+      font-weight: 700;
+      color: #000000;
+      margin: 10px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #000000;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #333333;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 24px;
+      background: #000000;
+      color: #ffffff;
+      margin-top: 48px;
+      font-size: 14px;
+    }
+
+    /* Responsif */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .produk-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      }
+      header h1 {
+        font-size: 20px;
+      }
+      nav a {
+        margin-left: 16px;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>GadgetKita</h1>
+  <nav>
+    <a href="index.html">Produk</a>
+    <a href="tentang.html">Tentang</a>
+  </nav>
+</header>
+
+<marquee behavior="scroll" direction="left" scrollamount="4">
+  📱 PROMO KHUSUS HARI INI — Gratis Ongkir & Garansi Resmi 1 Tahun
+</marquee>
+
+<div class="container">
+  <main>
+    <h2>Handphone Terbaru</h2>
+    <div class="produk-grid">
+      <!-- Produk 1 -->
+      <div class="produk">
+        <h3>iPhone 15</h3>
+        <a href="detail1.html?id=1"><img src="https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/iphone_15_hero.png" alt="iPhone 15"></a>
+        <div class="harga">Rp15.999.000</div>
+        <a href="detail1.html?id=1" class="btn">Beli Sekarang</a>
+      </div>
+      <!-- Produk 2 -->
+      <div class="produk">
+        <a href="detail.html?id=2"><img src="https://images.samsung.com/is/image/samsung/assets/id/smartphones/galaxy-s24/buy/S24-Color-Onyx_Black_MO_0527_final.jpg?imbypass=true" alt="Samsung Galaxy S24"></a>
+        <h3>Samsung S24</h3>
+        <div class="harga">Rp14.499.000</div>
+        <a href="detail2.html?id=2" class="btn">Beli Sekarang</a>
+      </div>
+      <!-- Produk 3 -->
+      <div class="produk">
+        <a href="detail3.html?id=3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHQsqsTmAMzwhfvFohK0BA5n5hWt17gY1vkQ&s" alt="Xiaomi 14"></a>
+        <h3>Xiaomi 14</h3>
+        <div class="harga">Rp8.999.000</div>
+        <a href="detail3.html?id=3" class="btn">Beli Sekarang</a>
+      </div>
+      <!-- Produk 4 -->
+      <div class="produk">
+        <a href="detail4.html?id=4"><img src="https://s7d1.scene7.com/is/image/dmqualcommprod/Find-X7-Ultra?$QC_Responsive$&fmt=png-alpha" alt="Oppo Find X7"></a>
+        <h3>Oppo Find X7</h3>
+        <div class="harga">Rp9.799.000</div>
+        <a href="detail4.html?id=4" class="btn">Beli Sekarang</a>
+      </div>
+      <!-- Produk 5 -->
+      <div class="produk">
+        <a href="detail5.html?id=5"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8g6MQ7TdgQ9z-1iafco6F0_H9Idmzo3rWfw&s" alt="Vivo X100"></a>
+        <h3>Vivo X100</h3>
+        <div class="harga">Rp10.499.000</div>
+        <a href="detail5.html?id=5" class="btn">Beli Sekarang</a>
+      </div>
+      <!-- Produk 6 -->
+      <div class="produk">
+        <a href="detail6.html?id=6"><img src="https://indodana-web.imgix.net/assets/realme-gt-6-thumbnail.png?auto=compress" alt="Realme GT 6"></a>
+        <h3>Realme GT 6</h3>
+        <div class="harga">Rp6.299.000</div>
+        <a href="detail6.html?id=6" class="btn">Beli Sekarang</a>
+      </div>
+      <!-- Produk 7 -->
+      <div class="produk">
+        <a href="detail7.html?id=7"><img src="https://images.bisnis.com/posts/2023/12/26/1727177/pixel-8-fix.jpg" alt="Google Pixel 8"></a>
+        <h3>Google Pixel 8</h3>
+        <div class="harga">Rp11.999.000</div>
+        <a href="detail7.html?id=7" class="btn">Beli Sekarang</a>
+      </div>
+      <!-- Produk 8 -->
+      <div class="produk">
+        <a href="detail8.html?id=8"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQuUNgqYHdnM1la-Lk3NE87KPVBAPL-eAaFg&s" alt="Nothing Phone (2)"></a>
+        <h3>Nothing Phone (2)</h3>
+        <div class="harga">Rp9.999.000</div>
+        <a href="detail8.html?id=8" class="btn">Beli Sekarang</a>
+      </div>
+      <!-- Produk 9 -->
+      <div class="produk">
+        <a href="detail9.html?id=9"><img src="https://els.id/wp-content/uploads/2024/04/Asus-ROG-Phone-8.png" alt="ASUS ROG Phone 8"></a>
+        <h3>ASUS ROG Phone 8</h3>
+        <div class="harga">Rp13.499.000</div>
+        <a href="detail9.html?id=9" class="btn">Beli Sekarang</a>
+      </div>
+    </div>
+  </main>
+
+  <aside>
+    <h3>Kategori</h3>
+    <ul>
+      <li><a href="#">Flagship</a></li>
+      <li><a href="#">Mid-Range</a></li>
+      <li><a href="#">Gaming Phone</a></li>
+      <li><a href="#">5G Ready</a></li>
+    </ul>
+
+    <h3 style="margin-top: 24px;">Garansi</h3>
+    <p>Semua produk bergaransi resmi 1 tahun dari brand.</p>
+
+    <h3 style="margin-top: 24px;">Layanan</h3>
+    <p>✅ Gratis Ongkir<br>
+       ✅ COD Tersedia<br>
+       ✅ Bisa Cicilan 0%</p>
+  </aside>
+</div>
+
+<footer>
+  &copy; 2025 GadgetKita. Toko Handphone Resmi & Terpercaya.
+</footer>
+
+</body>
+</html>
