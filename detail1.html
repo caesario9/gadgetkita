@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Produk - GadgetKita</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f9f9f9; color: #333; }
+    header { background: black; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+    h1 { margin: 0; font-size: 24px; }
+    a.back-btn { text-decoration: none; color: #333; background: white; padding: 8px 20px; border-radius: 30px; font-weight: bold; border: 1px solid #ddd; }
+    
+    .container { max-width: 900px; margin: 30px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-wrap: wrap; gap: 30px; }
+    .img-box { flex: 1; min-width: 300px; text-align: center; }
+    .img-box img { max-width: 100%; border-radius: 12px; }
+    .info-box { flex: 1; min-width: 300px; }
+    
+    .product-title { font-size: 28px; margin-bottom: 10px; font-weight: 700; }
+    .product-price { font-size: 26px; color: #d00000; font-weight: bold; margin-bottom: 20px; }
+    .product-desc { line-height: 1.6; color: #555; margin-bottom: 25px; }
+    
+    .btn-buy {
+      display: inline-block; width: 100%; padding: 15px; background: black; color: white; 
+      text-align: center; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; 
+      cursor: pointer; transition: 0.3s; text-decoration: none;
+    }
+    .btn-buy:hover { background: #333; transform: translateY(-2px); }
+    
+    .specs { margin-top: 20px; background: #f4f4f4; padding: 15px; border-radius: 8px; font-size: 14px; }
+    .specs ul { padding-left: 20px; margin: 0; }
+    .specs li { margin-bottom: 5px; }
+
+    @media (max-width: 600px) { .container { flex-direction: column; padding: 20px; } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>GadgetKita</h1>
+  </header>
+  <div style="padding: 15px; background: white; border-bottom: 1px solid #eee;">
+    <a href="index.html" class="back-btn">&larr; Kembali ke Daftar</a>
+  </div>
+
+  <div class="container">
+    <div class="img-box">
+      <!-- Gambar Placeholder, ganti src dengan gambar asli jika ada -->
+      <img src="https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/iphone_15_hero.png" alt="Produk">
+    </div>
+    <div class="info-box">
+      <h2 id="namaProduk" class="product-title">Memuat...</h2>
+      <div id="hargaProduk" class="product-price">Rp 0</div>
+      <p id="deskripsiProduk" class="product-desc">Memuat detail produk...</p>
+      
+      <div class="specs">
+        <strong>Spesifikasi Singkat:</strong>
+        <ul id="listSpek">
+          <li>Garansi Resmi 1 Tahun</li>
+          <li>Kondisi Baru (Segel)</li>
+          <li>Gratis Ongkir ke Seluruh Indonesia</li>
+        </ul>
+      </div>
+      <br>
+      <button onclick="beliSekarang()" class="btn-buy">Beli Sekarang</button>
+    </div>
+  </div>
+
+  <script>
+    // ID PRODUK UNTUK HALAMAN INI
+    const currentId = '1'; 
+
+    // DATABASE PRODUK LENGKAP
+    const produkData = {
+      '1': { nama: 'iPhone 15 Pro Max 256GB - Titanium', harga: 24999000, desk: 'Chip A17 Pro, Desain Titanium Ringan, Kamera Telefoto 5x.', img: 'https://picsum.photos/400/400?random=1' },
+      '2': { nama: 'Samsung Galaxy S24 Ultra 512GB - Grey', harga: 23999000, desk: 'Galaxy AI, Titanium Frame, S Pen Stylus, Kamera 200MP.', img: 'https://picsum.photos/400/400?random=2' },
+      '3': { nama: 'Xiaomi 14 256GB - Black', harga: 11999000, desk: 'Lensa Leica Summilux, Snapdragon 8 Gen 3, Layar LTPO AMOLED.', img: 'https://picsum.photos/400/400?random=3' },
+      '4': { nama: 'OPPO Find N3 Fold - Gold', harga: 29999000, desk: 'Layar Lipat Flagship, Kamera Hasselblad, Tipis & Ringan.', img: 'https://picsum.photos/400/400?random=4' },
+      '5': { nama: 'Vivo X100 Pro - Asteroid Black', harga: 16999000, desk: 'Kamera ZEISS APO Floating Telephoto, Dimensity 9300.', img: 'https://picsum.photos/400/400?random=5' },
+      '6': { nama: 'Realme GT 5 Pro - Red Rock', harga: 10999000, desk: 'Performa Gaming Terbaik, Baterai 5400mAh, 100W Charging.', img: 'https://picsum.photos/400/400?random=6' },
+      '7': { nama: 'Google Pixel 8 - Hazel', harga: 11999000, desk: 'Kamera AI Terbaik, Android Murni, Update OS 7 Tahun.', img: 'https://picsum.photos/400/400?random=7' },
+      '8': { nama: 'Nothing Phone (2) - White', harga: 9999000, desk: 'Desain Transparan Glyph Interface, Nothing OS yang Unik.', img: 'https://picsum.photos/400/400?random=8' },
+      '9': { nama: 'ASUS ROG Phone 8 - Black', harga: 13499000, desk: 'HP Gaming Ultimate, Snapdragon 8 Gen 3, AniMe Vision.', img: 'https://picsum.photos/400/400?random=9' }
+    };
+
+    // FUNGSI LOAD DATA
+    function muatHalaman() {
+      const data = produkData[currentId];
+      if(data) {
+        document.getElementById('namaProduk').innerText = data.nama;
+        document.getElementById('hargaProduk').innerText = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(data.harga);
+        document.getElementById('deskripsiProduk').innerText = data.desk;
+        document.getElementById('imgProduk').src = data.img;
+      }
+    }
+
+    // FUNGSI BELI (PENTING!)
+    function beliSekarang() {
+      const data = produkData[currentId];
+      // Simpan ke LocalStorage agar Checkout bisa membacanya
+      localStorage.setItem('keranjang_beli_sekarang', JSON.stringify(data));
+      // Pindah ke Checkout
+      window.location.href = 'checkout.html';
+    }
+
+    muatHalaman();
+  </script>
+</body>
+</html>

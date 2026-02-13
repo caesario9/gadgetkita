@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Transaksi - GadgetKita</title>
+</head>
+<body onload="muatDataProduk()">
+
+  <!-- Header -->
+  <div style="background:black; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center;">
+    <h1 style="margin:0; font-size:24px;">GadgetKita</h1>
+  </div>
+
+  <!-- Menu / Navigasi -->
+  <div style="padding:15px; background:#fff; border-bottom:1px solid #eee;">
+    <a href="index.html" style="
+        text-decoration:none;
+        display:inline-block;
+        padding:8px 20px;
+        border:1px solid #333;
+        border-radius:30px;
+        color:#333;
+        font-weight:bold;
+        font-size:14px;
+        background:#fff;
+        transition:0.3s;
+    ">
+      &larr; Kembali Belanja
+    </a>
+  </div>
+
+  <!-- Marquee -->
+  <marquee scrollamount="3" style="background:#f5f5f5; padding:8px; color:#555; font-size:14px;">📱 PROMO KHUSUS HARI INI — Gratis Ongkir & Garansi Resmi 1 Tahun</marquee>
+
+  <!-- Layout: Konten + Sidebar -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="15">
+    <tr>
+      <!-- Konten Utama: Form -->
+      <td width="75%" valign="top">
+        <h2>Form Transaksi Penjualan</h2>
+
+        <form id="formCheckout" onsubmit="simpanDanKirim(event)">
+          <table width="100%" border="0" cellspacing="0" cellpadding="8" style="max-width:600px;">
+            
+            <!-- INFO PRODUK (Tersembunyi secara visual agar rapi, tapi ada di memori) -->
+            <!-- Kita tampilkan ringkasan kecil agar user yakin -->
+            <tr>
+              <td colspan="2" style="background:#eef; border-left:4px solid #000; padding:10px; font-size:14px;">
+                Checkout untuk: <strong id="labelProduk">Memuat produk...</strong>
+              </td>
+            </tr>
+
+            <!-- FORM DATA PEMBELI -->
+            <tr>
+              <td width="35%"><strong>Nama Lengkap</strong></td>
+              <td><input type="text" name="nama" required placeholder="Nama Lengkap Penerima" style="width:100%; padding:10px; border:1px solid #aaa; border-radius:6px;"></td>
+            </tr>
+            <tr>
+              <td><strong>No. HP / WhatsApp</strong></td>
+              <td><input type="tel" name="hp" required placeholder="0812xxxx" style="width:100%; padding:10px; border:1px solid #aaa; border-radius:6px;"></td>
+            </tr>
+            <tr>
+              <td><strong>Email</strong></td>
+              <td><input type="email" name="email" required placeholder="email@contoh.com" style="width:100%; padding:10px; border:1px solid #aaa; border-radius:6px;"></td>
+            </tr>
+            <tr>
+              <td valign="top"><strong>Alamat Lengkap</strong></td>
+              <td><textarea name="alamat" rows="3" required placeholder="Nama Jalan, No. Rumah, RT/RW" style="width:100%; padding:10px; border:1px solid #aaa; border-radius:6px;"></textarea></td>
+            </tr>
+            <tr>
+              <td><strong>Kota / Kabupaten</strong></td>
+              <td><input type="text" name="kota" required placeholder="Contoh: Bandung" style="width:100%; padding:10px; border:1px solid #aaa; border-radius:6px;"></td>
+            </tr>
+            <tr>
+              <td><strong>Kode Pos</strong></td>
+              <td><input type="text" name="kodepos" required placeholder="40xxx" style="width:100%; padding:10px; border:1px solid #aaa; border-radius:6px;"></td>
+            </tr>
+            <tr>
+              <td><strong>Pilih Kurir</strong></td>
+              <td>
+                <select name="kurir" required style="width:100%; padding:10px; border:1px solid #aaa; border-radius:6px; background:white;">
+                  <option value="">— Pilih Ekspedisi —</option>
+                  <option value="JNE">JNE (Gratis)</option>
+                  <option value="SiCepat">SiCepat (Gratis)</option>
+                  <option value="AnterAja">AnterAja (Gratis)</option>
+                  <option value="GO-SEND">GO-SEND (Instant)</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top"><strong>Metode Pembayaran</strong></td>
+              <td>
+                <div style="margin-bottom:5px;"><input type="radio" name="pembayaran" value="Transfer Bank BCA" required> Transfer Bank BCA</div>
+                <div style="margin-bottom:5px;"><input type="radio" name="pembayaran" value="E-Wallet (QRIS)" required> E-Wallet (GoPay/OVO/DANA)</div>
+                <div><input type="radio" name="pembayaran" value="COD (Bayar di Tempat)" required> COD (Bayar di Tempat)</div>
+              </td>
+            </tr>
+            <tr>
+              <td valign="top"><strong>Catatan (Opsional)</strong></td>
+              <td><textarea name="catatan" rows="2" placeholder="Warna cadangan, patokan rumah, dll" style="width:100%; padding:10px; border:1px solid #aaa; border-radius:6px;"></textarea></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <!-- Tombol Submit -->
+                <button type="submit" 
+                       style="padding:14px 30px; 
+                              background:#000000; 
+                              color:#ffffff; 
+                              border:none; 
+                              border-radius:50px; 
+                              font-weight:bold; 
+                              font-size:16px; 
+                              cursor:pointer;
+                              margin-top:15px;
+                              width: 100%;
+                              box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                   Checkout & Cetak Struk &raquo;
+                </button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </td>
+
+      <!-- Sidebar Kanan -->
+      <td width="25%" valign="top" style="background:#f9f9f9; border-left:1px solid #ddd; font-size:14px; padding:20px;">
+        <h3 style="margin-top:0; color:#000;">Layanan Kami</h3>
+        <ul style="padding-left:18px; line-height:1.6;">
+          <li>✅ Garansi Resmi 1 Tahun</li>
+          <li>🚚 Gratis Ongkir Nasional</li>
+          <li>💳 Cicilan 0% via Kartu Kredit</li>
+          <li>🔄 Retur dalam 7 Hari</li>
+        </ul>
+        <hr style="border:0; border-top:1px solid #ddd; margin:20px 0;">
+        <h3 style="color:#000;">Butuh Bantuan?</h3>
+        <p style="line-height:1.6;">
+          Hubungi CS kami jika Anda mengalami kendala saat checkout.<br><br>
+          📞 <strong>+62 812-3456-7890</strong><br>
+          📧 support@gadgetkita.com
+        </p>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Footer -->
+  <div style="background:black; color:white; text-align:center; padding:20px; margin-top:30px; font-size:14px;">
+    &copy; 2025 GadgetKita. Toko Handphone Resmi & Terpercaya.
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Variabel global untuk menyimpan data produk yang sedang diproses
+    let produkTerpilih = {
+        nama: "iPhone 15 Pro Max 256GB - Titanium", // Default fallback
+        harga: 24999000
+    };
+
+    function muatDataProduk() {
+      // Coba ambil data yang dikirim dari halaman detail (localStorage key: 'keranjang_beli_sekarang')
+      const dataTersimpan = localStorage.getItem('keranjang_beli_sekarang');
+      
+      if (dataTersimpan) {
+        try {
+          const parsedData = JSON.parse(dataTersimpan);
+          // Pastikan data valid sebelum dipakai
+          if(parsedData.nama && parsedData.harga) {
+             produkTerpilih = parsedData;
+          }
+        } catch (e) {
+          console.error("Gagal parsing data produk", e);
+        }
+      }
+
+      // Tampilkan nama produk di label kecil (User Experience)
+      document.getElementById('labelProduk').innerText = produkTerpilih.nama;
+    }
+
+    function simpanDanKirim(event) {
+      event.preventDefault(); // Mencegah reload halaman
+      
+      const form = event.target;
+      
+      // Bersihkan harga dari format string jika perlu (misal "Rp 10.000" jadi 10000)
+      let hargaBersih = produkTerpilih.harga;
+      if (typeof hargaBersih === 'string') {
+          hargaBersih = parseInt(hargaBersih.replace(/[^0-9]/g, ''), 10);
+      }
+
+      // Membuat Nomor Invoice Acak
+      const noInvoice = "INV/GK/" + Math.floor(Math.random() * 1000000);
+      const tanggal = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
+
+      // Mengambil data dari form + Data Produk
+      const dataTransaksi = {
+        invoice: noInvoice,
+        tanggal: tanggal,
+        produk: produkTerpilih.nama,    // DYNAMIC: Dari localStorage
+        harga: hargaBersih,             // DYNAMIC: Dari localStorage
+        nama: form.nama.value,
+        hp: form.hp.value,
+        email: form.email.value,
+        alamat: form.alamat.value,
+        kota: form.kota.value,
+        kodepos: form.kodepos.value,
+        kurir: form.kurir.value,
+        pembayaran: form.pembayaran.value,
+        catatan: form.catatan.value
+      };
+
+      // Simpan ke LocalStorage untuk halaman Invoice
+      localStorage.setItem('dataStrukGadgetKita', JSON.stringify(dataTransaksi));
+
+      // Pindah ke halaman invoice
+      window.location.href = 'invoice.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Struk Pembayaran - GadgetKita</title>
+</head>
+<body onload="muatDataStruk()">
+
+  <!-- Header -->
+  <div style="background:black; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center;">
+    <h1 style="margin:0; font-size:24px;">GadgetKita</h1>
+  </div>
+
+  <!-- Menu / Navigasi -->
+  <div style="padding:15px; background:#fff; border-bottom:1px solid #eee;">
+    <a href="checkout.html" style="
+        text-decoration:none;
+        display:inline-block;
+        padding:8px 20px;
+        border:1px solid #333;
+        border-radius:30px;
+        color:#333;
+        font-weight:bold;
+        font-size:14px;
+        background:#fff;
+        transition:0.3s;
+    ">
+      &larr; Kembali ke Form
+    </a>
+  </div>
+
+  <!-- Layout Utama -->
+  <table width="100%" border="0" cellspacing="0" cellpadding="20">
+    <tr>
+      <td align="center">
+        
+        <!-- KOTAK INVOICE -->
+        <div style="width:100%; max-width:700px; border:2px solid #000; padding:0; background:white; text-align:left; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+          
+          <!-- Judul Invoice -->
+          <div style="background:#f9f9f9; padding:25px; border-bottom:1px solid #000;">
+            <table width="100%">
+              <tr>
+                <td>
+                  <h2 style="margin:0; font-size:22px;">INVOICE / BUKTI PESANAN</h2>
+                  <span style="font-size:14px; color:#555;">Terima kasih telah berbelanja di GadgetKita</span>
+                </td>
+                <td align="right">
+                  <h3 style="margin:0;" id="tampilInvoice">INV/GK/XXXXXX</h3>
+                  <small id="tampilTanggal">1 Januari 2025</small>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- Detail Customer & Pengiriman -->
+          <div style="padding:25px;">
+            <table width="100%" border="0">
+              <tr>
+                <td width="50%" valign="top" style="padding-right:20px;">
+                  <h4 style="border-bottom:1px solid #ddd; padding-bottom:5px; margin-top:0;">DITAGIHKAN KEPADA:</h4>
+                  <p style="line-height:1.6; font-size:15px;">
+                    <strong id="tampilNama" style="font-size:16px;">Nama Pembeli</strong><br>
+                    <span id="tampilHp">0812xxxx</span><br>
+                    <span id="tampilEmail">email@contoh.com</span>
+                  </p>
+                </td>
+                <td width="50%" valign="top" style="padding-left:20px;">
+                  <h4 style="border-bottom:1px solid #ddd; padding-bottom:5px; margin-top:0;">TUJUAN PENGIRIMAN:</h4>
+                  <p style="line-height:1.6; font-size:15px;">
+                    <span id="tampilAlamat">Alamat Lengkap...</span><br>
+                    <span id="tampilKota">Kota</span>, <span id="tampilKodePos">Pos</span><br>
+                    <strong>Ekspedisi:</strong> <span id="tampilKurir">JNE</span>
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- Tabel Produk -->
+          <div style="padding:0 25px;">
+            <table width="100%" border="1" cellspacing="0" cellpadding="12" style="border-collapse:collapse; border-color:#ddd;">
+              <tr style="background:#000; color:white;">
+                <th>Deskripsi Produk</th>
+                <th width="150" align="right">Metode Bayar</th>
+                <th width="150" align="right">Jumlah</th>
+              </tr>
+              <tr>
+                <td>
+                  <strong id="tampilProduk" style="font-size:16px;">Nama Produk</strong><br>
+                  <small style="color:#666;">Garansi Resmi 1 Tahun</small>
+                  <br><br>
+                  <em>Catatan: <span id="tampilCatatan">-</span></em>
+                </td>
+                <td align="right" valign="top" id="tampilBayar">Transfer</td>
+                <td align="right" valign="top"><strong id="tampilHarga">Rp 0</strong></td>
+              </tr>
+              <tr>
+                <td colspan="2" align="right">Ongkos Kirim</td>
+                <td align="right">Rp 0 (Promo)</td>
+              </tr>
+              <tr style="background:#f9f9f9;">
+                <td colspan="2" align="right"><strong>TOTAL BAYAR</strong></td>
+                <td align="right"><strong style="font-size:20px; color:#000;" id="tampilTotal">Rp 0</strong></td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- Status & Footer Struk -->
+          <div style="padding:25px; text-align:center; margin-top:10px;">
+            <div style="border:2px dashed #000; padding:12px 20px; display:inline-block; font-weight:bold; color:green; transform: rotate(-2deg); font-size:16px;">
+              STATUS: MENUNGGU PEMBAYARAN / COD
+            </div>
+            <p style="font-size:13px; color:#666; margin-top:25px;">
+              Silakan simpan halaman ini sebagai bukti pemesanan.<br>
+              Barang akan segera diproses setelah konfirmasi.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Tombol Aksi -->
+        <div style="margin-top:25px;">
+          <button onclick="window.print()" 
+                  style="padding:12px 25px; background:white; border:2px solid black; border-radius:30px; cursor:pointer; font-weight:bold; font-size:14px; margin-right:10px;">
+            🖨️ Cetak / Simpan PDF
+          </button>
+          
+          <button onclick="window.location.href='checkout.html'" 
+                  style="padding:12px 25px; background:black; color:white; border:2px solid black; border-radius:30px; cursor:pointer; font-weight:bold; font-size:14px;">
+            Buat Pesanan Baru &raquo;
+          </button>
+        </div>
+
+      </td>
+    </tr>
+  </table>
+
+  <!-- Footer -->
+  <div style="background:black; color:white; text-align:center; padding:20px; margin-top:40px; font-size:14px;">
+    &copy; 2025 GadgetKita.
+  </div>
+
+  <!-- Script Mengambil Data -->
+  <script>
+    function formatRupiah(angka) {
+      return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(angka);
+    }
+
+    function muatDataStruk() {
+      // Ambil data dari LocalStorage
+      const dataString = localStorage.getItem('dataStrukGadgetKita');
+      
+      if (!dataString) {
+        alert("Data transaksi tidak ditemukan. Kembali ke form checkout.");
+        window.location.href = 'checkout.html';
+        return;
+      }
+
+      const data = JSON.parse(dataString);
+
+      // Masukkan data ke dalam HTML berdasarkan ID
+      document.getElementById('tampilInvoice').innerText = data.invoice;
+      document.getElementById('tampilTanggal').innerText = data.tanggal;
+      
+      document.getElementById('tampilNama').innerText = data.nama;
+      document.getElementById('tampilHp').innerText = data.hp;
+      document.getElementById('tampilEmail').innerText = data.email;
+      
+      document.getElementById('tampilAlamat').innerText = data.alamat;
+      document.getElementById('tampilKota').innerText = data.kota;
+      document.getElementById('tampilKodePos').innerText = data.kodepos;
+      document.getElementById('tampilKurir').innerText = data.kurir;
+
+      document.getElementById('tampilProduk').innerText = data.produk;
+      document.getElementById('tampilCatatan').innerText = data.catatan || "-";
+      document.getElementById('tampilBayar').innerText = data.pembayaran;
+      
+      document.getElementById('tampilHarga').innerText = formatRupiah(data.harga);
+      document.getElementById('tampilTotal').innerText = formatRupiah(data.harga);
+    }
+  </script>
+
+</body>
+</html>
